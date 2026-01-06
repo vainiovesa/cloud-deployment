@@ -28,3 +28,10 @@ jobs:
         context: .
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/web-app:latest
+
+    - name: Deploy
+      if: github.ref == 'refs/heads/main'
+      env:
+        deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+      run: |
+        curl "$deploy_url"
