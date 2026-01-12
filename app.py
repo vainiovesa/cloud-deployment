@@ -14,5 +14,10 @@ def answer():
     return "42"
 
 
+@app.route("/question")
+def question():
+    return "What is 6 times 7?"
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
